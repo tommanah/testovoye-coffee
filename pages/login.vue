@@ -1,6 +1,6 @@
 <template>
   <div class="login-container">
-    <h1 class="">Добро пожаловать в приложение!!!</h1>
+    <h1 class="">Система управления заказами</h1>
     <LoginForm 
       :loading="loading" 
       :error="error"
@@ -9,12 +9,31 @@
   </div>
 </template> 
 
-<script setup>
+<script setup lang="ts">
 import LoginForm from '../components/LoginForm.vue';
+import { useAuthStore } from '../stores/auth';
+import { useRouter } from 'vue-router';
+
 const username = ref('');
 const password = ref('');
 const loading = ref(false);
+const error = ref('');
+const authStore = useAuthStore();
+const router = useRouter();
 
+const handleLogin = async (formData: { username: string, password: string }) => {
+  loading.value = true;
+  error.value = '';
+  
+  try {
+    await authStore.login(formData.username, formData.password);
+    await router.push('/account');
+  } catch (e) {
+    error.value = e instanceof Error ? e.message : 'Введены неверные данные авторизации. Попробуйте ещё раз';
+  } finally {
+    loading.value = false;
+  }
+};
 </script>
 
 <style lang="scss" scoped>

@@ -9,5 +9,13 @@ export default defineNuxtConfig({
     '@/assets/styles.scss',
   ],
   modules: ['@pinia/nuxt'],
-
+  
+  imports: {
+    dirs: ['stores'],
+  },
+  
+  typescript: {
+    strict: true,
+  },
+  
 })
