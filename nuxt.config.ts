@@ -18,4 +18,14 @@ export default defineNuxtConfig({
     strict: true,
   },
   
+  nitro: {
+    prerender: {
+      failOnError: false,
+      routes: ['/login', '/']
+    }
+  },
+  
+  app: {
+    baseURL: '/test_coffee/'
+  }
 })
