@@ -1,0 +1,1 @@
+import{o as e,u as t,t as a,v as n,T as s}from"./DLKcPPjX.js";const c={__name:"default",setup(r){return e(()=>{const o=t();(window.location.pathname==="/"||window.location.pathname==="")&&o.push("/login")}),(o,l)=>(n(),a("div",null,[s(o.$slots,"default")]))}};export{c as default};

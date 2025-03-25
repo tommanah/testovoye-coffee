@@ -1,0 +1,1 @@
+import{u as i}from"./bNDonERs.js";import{S as o,n as a}from"./DLKcPPjX.js";const r=o(e=>{const t=i();if(t.checkAuth(),!t.isAuthenticated&&e.path!=="/login")return a("/login");if(t.isAuthenticated&&e.path==="/login")return a("/account")});export{r as default};
